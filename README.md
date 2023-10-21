@@ -61,7 +61,7 @@ accessible, inclusive, and trustworthy.
 
 ![image](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/544e4474-5bd1-4ae8-adcf-58a7f1793542)
 
-## LOGISIM
+## Logisim
 
 1. Open the logisim software and open the file project.circ.
 2. Press the reset button and enter the valid password.
@@ -69,7 +69,7 @@ accessible, inclusive, and trustworthy.
 4. Now the once, the vote is casted the entire machine gets deactivated for further voting, to avoid multiple votes.
 5. Finally, once the entire voting process is completeted, the results will be displayed.
 
-Verilog
+## Verilog
 
 1. Set the reset to one so that all counters start at 0.
 2. Set the clocks to 0 as well. We keep flipping it every 10 seconds ,ie. every 10 seconds the clocks go (0->1->0->1->0)
