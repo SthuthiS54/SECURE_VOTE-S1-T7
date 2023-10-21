@@ -1,5 +1,5 @@
 # SECURE_VOTE-S1-T7
-
+## Abstract
 In response to the pressing need for secure and efficient voting methods, our 
 digital voting machine (DVM) mini project is dedicated to revolutionizing the 
 way we conduct elections. Our mission is to design a tamper-free, user-friendly 
@@ -31,7 +31,7 @@ reliable, efficient, and secure voting experience. It empowers citizens and
 strengthens the democratic foundation of our society by making elections more 
 accessible, inclusive, and trustworthy.
 
-# Functional Table
+## Functional Table
 |   A   |   B   |   O   | clk1 | clk2 | clk3 | clk4 | counter1 | counter2 | counter3 | counter4 |
 |:----:|:----:|:----:|:----:|:----:|:----:|:----:|:-------:|:-------:|:-------:|:-------:|
 | 2987 | 2987 |  1  |  0  |  0  |  0  |  0  |    0    |    0    |    0    |    0    |
@@ -57,7 +57,7 @@ accessible, inclusive, and trustworthy.
 | 2987 | 3687 |  0  |  0  |  0  |  1  |  0  |    2    |    1    |    4    |    2    |
 | 1122 | 1122 |  1  |  0  |  1  |  0  |  0  |    2    |    2    |    4    |    2    |
 
-# Logisim and Verilog(Flow of Execution):
+## Logisim and Verilog(Flow of Execution):
 
 ![image](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/544e4474-5bd1-4ae8-adcf-58a7f1793542)
 
@@ -78,7 +78,7 @@ Verilog
 5. In terminal write the command iverilog <file_name>.v
 6. Then write the command vvp a.out.
 
-# Results 
+## Results 
 ![image](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/5bd47400-7bc3-4c85-a6e1-7ffcab9b3efc)
 
  
