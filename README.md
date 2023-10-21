@@ -61,22 +61,48 @@ accessible, inclusive, and trustworthy.
 
 ![image](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/544e4474-5bd1-4ae8-adcf-58a7f1793542)
 
-## Logisim
+Title: Creating a Secure Voting System with Logisim and Verilog
 
-1. Open the logisim software and open the file project.circ.
-2. Press the reset button and enter the valid password.
-3. Now take the input password from the voter. If the voter enters the right password, he will allowed to caste the vote.
-4. Now the once, the vote is casted the entire machine gets deactivated for further voting, to avoid multiple votes.
-5. Finally, once the entire voting process is completeted, the results will be displayed.
+## Logisim Setup:
 
-## Verilog
+1. Open Logisim software.
+2. Load the project by opening the file "project.circ."
+3. Press the reset button to initialize the system.
+4. Enter a valid password for authentication.
 
-1. Set the reset to one so that all counters start at 0.
-2. Set the clocks to 0 as well. We keep flipping it every 10 seconds ,ie. every 10 seconds the clocks go (0->1->0->1->0)
-3. We give all the inputs in the testbench for the candidate that has been voted, the password and the correct password.
-4. After every iteration that is every 10 seconds we display the change in the output if there is any.
-5. In terminal write the command iverilog <file_name>.v
-6. Then write the command vvp a.out.
+**Voter Authentication:**
+
+1. Collect the voter's input password.
+2. If the voter enters the correct password, allow them to cast their vote.
+
+**Preventing Multiple Votes:**
+
+1. After a vote is cast, deactivate the entire voting machine to prevent multiple votes.
+2. This ensures the integrity of the voting process.
+
+**Displaying Results:**
+
+1. Once the entire voting process is completed, display the election results to the users.
+
+## Verilog Setup:
+
+1. Set the reset signal to '1' to initialize all counters to zero.
+2. Initialize the clocks to '0,' and flip them every 10 seconds (0 -> 1 -> 0 -> 1 -> 0).
+
+**Testbench Inputs:**
+
+1. Provide inputs in the testbench, including the candidate voted for, the password, and the correct password.
+
+**Displaying Output:**
+
+1. At each 10-second interval, display any changes in the system's output.
+
+**Running Verilog:**
+
+1. In the terminal, run the command: `iverilog <file_name>.v`.
+2. Execute the simulation with: `vvp a.out`.
+
+In summary, this system is designed to **authenticate** each voter, allow them to cast their votes, **prevent multiple voting**, and **display the election winners**. The combination of Logisim and Verilog provides a secure and efficient voting solution.
 
 ## Results 
 ![image](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/5bd47400-7bc3-4c85-a6e1-7ffcab9b3efc)
