@@ -190,7 +190,7 @@ In summary, this system is designed to **authenticate** each voter, allow them t
  <details>
  
   
-  <summary>Verilog Main Code</summary>
+  > <summary>Verilog Main Code</summary>
                 
                 
            module comparator(input [3:0]A,input [3:0]B,output e);
