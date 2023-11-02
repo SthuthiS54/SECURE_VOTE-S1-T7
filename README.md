@@ -84,8 +84,54 @@ clk2, clk3, clk4 to ensure smooth voting process. When all the clk signals are s
 to 0 and display is set to zero, counters the votes for each candidates will be 
 zero. Now if the user enters the right password , then o is 1. Now the variables 
 count1, count2, count3, count4 store the number of votes for each candidate in 
-previous state. When clock signal for one candidate is set to 1, rest of the clock 
+previous state. When clock signal for one candidate is set to 1, rest of the clock signals are set to 0, hence it removes the chance of multiple voting . At the end 
+of the voting process, if the display is set 1, then the voting machine compares 
+the totals number of votes for each candiates and displays the results.
+
  
+
+
+
+## Logisim Setup:
+
+1. Open Logisim software.
+2. Load the project by opening the file "project.circ."
+3. Press the reset button to initialize the system.
+4. Enter a valid password for authentication.
+
+**Voter Authentication:**
+
+1. Collect the voter's input password.
+2. If the voter enters the correct password, allow them to cast their vote.
+
+**Preventing Multiple Votes:**
+
+1. After a vote is cast, deactivate the entire voting machine to prevent multiple votes.
+2. This ensures the integrity of the voting process.
+
+**Displaying Results:**
+
+1. Once the entire voting process is completed, display the election results to the users.
+
+## Verilog Setup:
+
+1. Set the reset signal to '1' to initialize all counters to zero.
+2. Initialize the clocks to '0,' and flip them every 10 seconds (0 -> 1 -> 0 -> 1 -> 0).
+
+**Testbench Inputs:**
+
+1. Provide inputs in the testbench, including the candidate voted for, the password, and the correct password.
+
+**Displaying Output:**
+
+1. At each 10-second interval, display any changes in the system's output.
+
+**Running Verilog:**
+
+1. In the terminal, run the command: `iverilog <file_name>.v`.
+2. Execute the simulation with: `vvp a.out`.
+
+In summary, this system is designed to **authenticate** each voter, allow them to cast their votes, **prevent multiple voting**, and **display the election winners**. The combination of Logisim and Verilog provides a secure and efficient voting solution.
 
 > ## Functional Table
 
@@ -125,11 +171,499 @@ previous state. When clock signal for one candidate is set to 1, rest of the clo
 ## Logisim Circuit Diagram:
 <details>
  <summary>Detail</summary>
+
+ > Logisim Voting Module
+ 
+ > ![Logisim_main](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/aae16f90-b6dc-42d8-9bfa-1ee69753cfb6)
+
+> Logisim 7-Segement Display
+
+> ![Logisim_display](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/8e7990e6-0cfc-47ab-8dd0-77cd78c0f7ba)
+
+
+
 </details>
 
-![image](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/544e4474-5bd1-4ae8-adcf-58a7f1793542)
+## Verilog Code
+<details>
+ <summary>Detail</summary>
 
-Title: Creating a Secure Voting System with Logisim and Verilog
+       module comparator(input [3:0]A,input [3:0]B,output e);
+
+           wire [3:0]x;
+
+           assign x[0]=~(A[0]^B[0]);
+
+           assign x[1]=~(A[1]^B[1]);
+
+           assign x[2]=~(A[2]^B[2]);
+
+           assign x[3]=~(A[3]^B[3]);
+
+           assign e=x[0]&x[1]&x[2]&x[3];
+
+           endmodule
+
+ 
+
+           module password(input [3:0]A1,input [3:0]A2,input [3:0]A3,input [3:0]A4,input [3:0]B1,input [3:0]B2,input [3:0]B3,input [3:0]B4,output o);
+
+           wire e1,e2,e3,e4;
+
+           comparator C1(A1,B1,e1);
+
+           comparator C2(A2,B2,e2);
+
+           comparator C3(A3,B3,e3);
+
+           comparator C4(A4,B4,e4);
+
+           assign o= e1 & e2 & e3 & e4;
+
+           endmodule
+
+
+
+           module voting_machine (
+
+           input [3:0]A1,input [3:0]A2,input [3:0]A3,input [3:0]A4,input [3:0]B1,input [3:0]B2,input [3:0]B3,input [3:0]B4,output o,
+
+           input wire clk1,
+
+           input wire clk2,
+
+           input wire clk3,
+
+           input wire clk4,
+
+           input wire [3:0]count1,
+
+           input wire [3:0]count2,
+
+           input wire [3:0]count3,
+
+           input wire [3:0]count4,
+
+           output reg [3:0] counter1,
+
+           output reg [3:0] counter2,
+
+           output reg [3:0] counter3,
+
+           output reg [3:0] counter4,
+
+           input wire display,
+
+           output reg P,
+
+           output reg Q,
+
+           output reg R,
+
+           output reg S
+
+         );
+
+         password p1(A1,A2,A3,A4,B1,B2,B3,B4,o);
+
+        always@(clk1==0 & clk2==0 & clk3==0 & clk4==0 &o==1'b1 & display==0)
+
+        begin
+
+    counter1 <= 4'b0000;
+
+    counter2 <= 4'b0000;
+
+    counter3 <= 4'b0000;
+
+    counter4 <= 4'b0000;
+
+    end
+
+    always@(clk1==0 & clk2==0 & clk3==0 & clk4==0 &o==1'b0 & display==0)
+
+    begin
+
+    counter1 <= 4'b0000;
+
+    counter2 <= 4'b0000;
+
+    counter3 <= 4'b0000;
+
+    counter4 <= 4'b0000;
+
+    end
+
+    always @(posedge clk1 & clk2==0 &clk3==0 &clk4==0 &o==1'b0 & display==0 ) begin
+
+    counter1 <= count1;
+
+    counter2 <= count2;
+
+    counter3 <= count3;
+
+    counter4 <= count4;
+
+    end
+
+    always @(posedge clk2 & clk1==0 &clk3==0 &clk4==0 &o==1'b0 & display==0) begin
+
+    counter2 <= count2;
+
+    counter1 <= count1;
+
+    counter3 <= count3;
+
+    counter4 <= count4;
+
+    end
+
+    always @(posedge clk3 &clk2==0 &clk1==0 &clk4==0 &o==1'b0 & display==0) begin
+
+    counter3 <= count3;
+
+    counter1 <= count1;
+
+    counter4 <= count4;
+
+    counter2 <= count2;
+
+    end
+
+    always @(posedge clk4 & clk1==0 &clk3==0 &clk2==0 &o==1'b0 & display==0) begin
+
+    counter4 <= count4;
+
+    counter1 <= count1;
+
+    counter2 <= count2;
+
+    counter3 <= count3;
+
+    end
+
+    always @(posedge clk1 & clk2==0 &clk3==0 &clk4==0 &o==1'b1 & display==0 ) begin
+
+    counter1 <= count1 + 4'b0001;
+
+    counter2 <= count2;
+
+    counter3 <= count3;
+
+    counter4 <= count4;
+
+    end
+
+    always @(posedge clk2 & clk1==0 &clk3==0 &clk4==0 &o==1'b1 & display==0) begin
+
+    counter2 <= count2 + 4'b0001;
+
+    counter1 <= count1;
+
+    counter3 <= count3;
+
+    counter4 <= count4;
+
+    end
+
+    always @(posedge clk3 &clk2==0 &clk1==0 &clk4==0 &o==1'b1 & display==0) begin
+
+    counter3 <= count3 + 4'b0001;
+
+    counter1 <= count1;
+
+    counter4 <= count4;
+
+    counter2 <= count2;
+
+    end
+
+    always @(posedge clk4 & clk1==0 &clk3==0 &clk2==0 &o==1'b1 & display==0) begin
+
+    counter4 <= count4 + 4'b0001;
+
+    counter1 <= count1;
+
+    counter2 <= count2;
+
+    counter3 <= count3;
+
+    end
+
+    always @(display==1'b1) begin
+
+     if (counter1 >= counter2 && counter1 >= counter3 && counter1 >= counter4)
+
+                P <= 1'b1;
+
+            else
+
+                P <= 1'b0;
+
+
+
+            if (counter2 >= counter1 && counter2 >= counter3 && counter2 >= counter4)
+
+                Q <= 1'b1;
+
+            else
+
+                Q <= 1'b0;
+
+
+
+            if (counter3 >= counter1 && counter3 >= counter2 && counter3 >= counter4)
+
+                R <= 1'b1;
+
+            else
+
+                R <= 1'b0;
+
+
+
+            if (counter4 >= counter1 && counter4 >= counter2 && counter4 >= counter3)
+
+                S <= 1'b1;
+
+            else
+
+                S <= 1'b0;
+
+      end
+
+      endmodule
+
+
+> ## Testbench Code
+
+
+        module voting_machine_tb;
+
+        reg clk1, clk2, clk3, clk4,display;
+
+        reg [3:0] count1,A1,A2,A3,A4,B1,B2,B3,B4;
+
+        reg [3:0] count2;
+
+        reg [3:0] count3;
+
+        reg [3:0] count4;
+
+        wire o,P,Q,R,S;
+
+        wire [3:0] counter1;
+
+        wire [3:0] counter2;
+
+        wire [3:0] counter3;
+
+        wire [3:0] counter4;
+
+        // Instantiate the voting_machine module
+
+     voting_machine uut (.A1(A1),.A2(A2),.A3(A3),.A4(A4),.B1(B1),.B2(B2),.B3(B3),.B4(B4),.o(o),
+
+    .clk1(clk1),
+
+    .clk2(clk2),
+
+    .clk3(clk3),
+
+    .clk4(clk4),
+
+    .count1(count1),
+
+    .count2(count2),
+
+    .count3(count3),
+
+    .count4(count4),
+
+    .counter1(counter1),
+
+    .counter2(counter2),
+
+    .counter3(counter3),
+
+    .counter4(counter4),
+
+    .display(display),
+
+    .P(P),
+
+    .Q(Q),
+
+    .R(R),
+
+    .S(S)
+
+    );
+
+
+
+    initial begin
+
+    $dumpfile("wave.vcd");
+
+    $dumpvars(0, voting_machine_tb);
+
+    clk1 = 1'b0;
+
+    clk2 = 1'b0;
+
+    clk3 = 1'b0;
+
+    clk4 = 1'b0;
+
+    display=1'b0;
+
+    A1=4'd2;A2=4'd9;A3=4'd8;A4=4'd7;B1=4'd2;B2=4'd9;B3=4'd8;B4=4'd7;
+
+    count1<=4'b0000;
+
+    count2<=4'b0000;
+
+    count3<=4'b0000;
+
+    count4<=4'b0000;
+
+    $display("-----------------------------------------------------------------------------------------------------------------------------------------------------");
+
+    $display("| INPUT PASSWORD | VALID PASSWORD | ELIGIBILITY | BUTTON-A |   COUNT-A   | BUTTON-B |   COUNT-B   | BUTTON-C |   COUNT-C   | BUTTON-D |   COUNT-D   |");
+
+    $display("|        A       |        B       |   match(o)  |    clk1  |   counter1  |   clk2   |   counter2  |   clk3   |   counter3  |   clk4   |   counter4  |");
+
+    $display("-----------------------------------------------------------------------------------------------------------------------------------------------------");
+
+    //$monitor("%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d", $time, counter1,counter2, clk2,counter3, clk3,counter4, clk4);
+
+    repeat (2) begin
+
+    $monitor("|  %d %d %d %d   |  %d %d %d %d   |       %b     |    %d     |      %d     |     %d    |     %d      |    %d     |     %d      |     %d    |     %d      |",A1,A2,A3,A4,B1,B2,B3,B4,o,                    clk1,counter1,clk2,counter2, clk3, counter3, clk4,counter4);
+
+        #10 A1=4'd2;A2=4'd9;A3=4'd8;A4=4'd7;B1=4'd2;B2=4'd9;B3=4'd8;B4=4'd7;clk1=1'b1; clk2=1'b0; clk3=1'b0; clk4=1'b0;
+
+        #10 count1<=counter1;
+
+        #10 count2<=counter2;
+
+        #10 count3<=counter3;
+
+        #10 count4<=counter4;
+
+        #10 A1=4'd8;A2=4'd4;A3=4'd2;A4=4'd1;B1=4'd8;B2=4'd2;B3=4'd4;B4=4'd0;clk1=1'b0; clk2=1'b0; clk3=1'b1; clk4=1'b0;
+
+        #10 count1<=counter1;
+
+        #10 count2<=counter2;
+
+        #10 count3<=counter3;
+
+        #10 count4<=counter4; 
+        #10 A1=4'd2;A2=4'd3;A3=4'd4;A4=4'd5;B1=4'd2;B2=4'd3;B3=4'd4;B4=4'd5;clk1=1'b0; clk2=1'b0; clk3=1'b0; clk4=1'b1;
+
+        #10 count1<=counter1;
+
+        #10 count2<=counter2;
+
+        #10 count3<=counter3;
+
+        #10 count4<=counter4; 
+
+       #10 A1=4'd2;A2=4'd9;A3=4'd8;A4=4'd7;B1=4'd2;B2=4'd9;B3=4'd8;B4=4'd7;clk1=1'b0; clk2=1'b0; clk3=1'b1; clk4=1'b0;  
+
+        #10 count1<=counter1;
+
+        #10 count2<=counter2;
+
+       #10 count3<=counter3;
+
+        #10 count4<=counter4; 
+
+        #10 A1=4'd3;A2=4'd2;A3=4'd1;A4=4'd7;B1=4'd2;B2=4'd9;B3=4'd8;B4=4'd7;clk1=1'b0; clk2=1'b1; clk3=1'b0; clk4=1'b0;
+
+       #10 count1<=counter1;
+
+        #10 count2<=counter2;
+
+        #10 count3<=counter3;
+
+        #10 count4<=counter4;
+
+        #10 A1=4'd2;A2=4'd9;A3=4'd8;A4=4'd7;B1=4'd3;B2=4'd5;B3=4'd9;B4=4'd7;clk1=1'b1; clk2=1'b0; clk3=1'b0; clk4=1'b0;
+
+        #10 count1<=counter1;
+
+        #10 count2<=counter2;
+
+        #10 count3<=counter3;
+
+        #10 count4<=counter4;
+
+        #10 A1=4'd8;A2=4'd4;A3=4'd2;A4=4'd1;B1=4'd8;B2=4'd4;B3=4'd2;B4=4'd1;clk1=1'b0; clk2=1'b0; clk3=1'b1; clk4=1'b0;
+
+        #10 count1<=counter1;
+
+        #10 count2<=counter2;
+
+        #10 count3<=counter3;
+
+        #10 count4<=counter4; 
+
+        #10 A1=4'd2;A2=4'd3;A3=4'd4;A4=4'd5;B1=4'd8;B2=4'd7;B3=4'd4;B4=4'd5;clk1=1'b0; clk2=1'b0; clk3=1'b0; clk4=1'b1;
+
+        #10 count1<=counter1;
+
+        #10 count2<=counter2;
+
+        #10 count3<=counter3;
+
+        #10 count4<=counter4; 
+
+        #10 A1=4'd2;A2=4'd9;A3=4'd8;A4=4'd7;B1=4'd3;B2=4'd6;B3=4'd8;B4=4'd7;clk1=1'b0; clk2=1'b0; clk3=1'b1; clk4=1'b0;  
+
+        #10 count1<=counter1;
+
+        #10 count2<=counter2;
+
+        #10 count3<=counter3;
+
+        #10 count4<=counter4; 
+
+        #10 A1=4'd1;A2=4'd1;A3=4'd2;A4=4'd2;B1=4'd1;B2=4'd1;B3=4'd2;B4=4'd2;clk1=1'b0; clk2=1'b1; clk3=1'b0; clk4=1'b0;
+
+        #10 count1<=counter1;
+
+        #10 count2<=counter2;
+
+        #10 count3<=counter3;
+
+        #10 count4<=counter4;      
+
+    end
+
+    #1000;
+
+    display=1'b1;
+
+    $display("-----------------------------------------------------------------------------------------------------------------------------------------------------");
+
+    $display("WINNER:");
+
+    $display("A   B    C    D");
+
+    $monitor("%b   %b    %b    %b",P,Q,R,S);
+
+    #10 $display("-----------------------------------------------------------------------------------------------------------------------------------------------------");
+
+   end
+   endmodule
+
+
+
+  
+</details>
 
 
 
