@@ -657,8 +657,8 @@ In summary, this system is designed to **authenticate** each voter, allow them t
 
     #10 $display("-----------------------------------------------------------------------------------------------------------------------------------------------------");
 
-   end
-   endmodule
+    end
+    endmodule
 
 
 
