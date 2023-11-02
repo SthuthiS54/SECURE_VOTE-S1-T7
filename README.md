@@ -23,7 +23,9 @@
 ## Abstract
 <details>
  
-> <summary>Detail</summary>
+ <summary>Detail</summary>
+
+>
 
 > In response to the pressing need for secure and efficient voting methods, our 
 digital voting machine (DVM) mini project is dedicated to revolutionizing the 
@@ -144,6 +146,8 @@ voting system that upholds the integrity of democracy is indeed within reach.
 <details>
  
  <summary>Detail</summary>
+
+>
 
 > ## Working
 
