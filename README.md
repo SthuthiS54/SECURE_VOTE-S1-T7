@@ -189,7 +189,6 @@ In summary, this system is designed to **authenticate** each voter, allow them t
  <summary>Detail</summary>
  <details>
  
-  
   > <summary>Verilog Main Code</summary>
                 
                 
