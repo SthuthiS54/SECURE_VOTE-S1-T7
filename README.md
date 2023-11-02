@@ -260,7 +260,7 @@ In summary, this system is designed to **authenticate** each voter, allow them t
 
  > ### Logisim Voting Module
 
-  ![Logisim_main](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/2c49a835-0d03-43c5-950d-c4e5e1d43188)
+  ![logisim](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/0654162e-0965-44bd-8de5-b06a49830354)
 
 
  > ### Logisim: 7 Segment Display
