@@ -1,0 +1,49 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Thu Nov  2 16:08:39 2023
+[*]
+[dumpfile] "/home/ubuntuvm/Desktop/ddss/wave.vcd"
+[dumpfile_mtime] "Thu Nov  2 16:05:20 2023"
+[dumpfile_size] 7346
+[savefile] "/home/ubuntuvm/Desktop/ddss/S1-T7.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*0.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 233
+[signals_width] 134
+[sst_expanded] 1
+[sst_vpaned_height] 144
+@22
+voting_machine_tb.A1[3:0]
+voting_machine_tb.A2[3:0]
+voting_machine_tb.A3[3:0]
+voting_machine_tb.A4[3:0]
+voting_machine_tb.B1[3:0]
+voting_machine_tb.B2[3:0]
+voting_machine_tb.B3[3:0]
+voting_machine_tb.B4[3:0]
+@28
+voting_machine_tb.P
+voting_machine_tb.Q
+voting_machine_tb.R
+voting_machine_tb.S
+voting_machine_tb.clk1
+voting_machine_tb.clk2
+voting_machine_tb.clk3
+voting_machine_tb.clk4
+@22
+voting_machine_tb.count1[3:0]
+voting_machine_tb.count2[3:0]
+voting_machine_tb.count3[3:0]
+voting_machine_tb.count4[3:0]
+voting_machine_tb.counter1[3:0]
+voting_machine_tb.counter2[3:0]
+voting_machine_tb.counter3[3:0]
+voting_machine_tb.counter4[3:0]
+@28
+voting_machine_tb.display
+@29
+voting_machine_tb.o
+[pattern_trace] 1
+[pattern_trace] 0
