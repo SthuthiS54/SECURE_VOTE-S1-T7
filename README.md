@@ -255,15 +255,16 @@ In summary, this system is designed to **authenticate** each voter, allow them t
 
 ## Logisim Circuit Diagram:
 <details>
+ 
  <summary>Detail</summary>
 
  > Logisim Voting Module
  
  > ![Logisim_main](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/aae16f90-b6dc-42d8-9bfa-1ee69753cfb6)
 
-> Logisim 7-Segement Display
+ > Logisim 7-Segement Display
 
-> ![Logisim_display](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/8e7990e6-0cfc-47ab-8dd0-77cd78c0f7ba)
+ > ![Logisim_display](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/8e7990e6-0cfc-47ab-8dd0-77cd78c0f7ba)
 
 
 
