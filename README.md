@@ -6,6 +6,8 @@
  
  >Semester: 3rd Sem B.Tech. CSE
 
+ >Section: S1
+
 
  >Member-1: GNANA JYOTHI, 221CS118, chinthagnanajyothi.221cs118@nitk.edu.in
 
