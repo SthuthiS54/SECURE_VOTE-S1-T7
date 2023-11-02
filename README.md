@@ -667,8 +667,3 @@ In summary, this system is designed to **authenticate** each voter, allow them t
 
 
 
-## Results 
-![image](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/5bd47400-7bc3-4c85-a6e1-7ffcab9b3efc)
-
- 
-
