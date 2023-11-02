@@ -97,7 +97,7 @@ its security.
 The concept of converting voting inputs into a binary format and processing 
 them through a counter to establish the final vote tally is a novel and intriguing 
 technique. This approach brings a degree of certainty to the process, 
-guaranteeing that votes are accurately counted and the results remain tamperproof. In this system, when a voter selects a candidate, the associated clock 
+guaranteeing that votes are accurately counted and the results remain tamper-proof. In this system, when a voter selects a candidate, the associated clock 
 signal is set to '1', while all others are set to '0'. This mechanism allows the 
 system to not only keep track of individual votes but also ensures that a voter 
 can only cast a single vote. The freezing of votes after each voter has exercised 
@@ -141,30 +141,31 @@ voting system that upholds the integrity of democracy is indeed within reach.
 
 
 </details>
-
-## Working 
-<details>
  
- <summary>Detail</summary>
+ 
+
+## Working
+
+<details>
+
+<summary>Detail</summary>
 
 >
 
-> ## Working
-
-Comparator Module: This module is designed to compare two sets of 4-bit inputs, A and B, and produce an output 'e' based on the comparison results. For each bit (0 to 3) in A 
+**Comparator Module**: This module is designed to compare two sets of 4-bit inputs, A and B, and produce an output 'e' based on the comparison results. For each bit (0 to 3) in A 
 and B, it calculates the XNOR of the bits. The inverted XOR results for each bit 
 are stored in a 4-bit wire 'x'. Finally, 'e' is set to 1 if all bits in 'x' are 1; 
 otherwise, 'e' is set to 0. That is, e is one if all the corresponding bits in A are 
 equal to the corresponding bits of B.
 
  
-Password Module: The password module combines four instances of the comparator module to 
+**Password Module**: The password module combines four instances of the comparator module to 
 compare the full four digit password. The output o of this module is the logical 
 AND of the e outputs from the four comparator modules. This means that o will 
 be 1 if and only if all four comparators agree on the vote. Hence, output o will 
 be 1 if the user enters the right password.
 
-Voting_machine module: This module instantiates the password module to decide the votes based on the input password and valid password. We will be using four clock signals clk1, 
+**Voting_machine module**: This module instantiates the password module to decide the votes based on the input password and valid password. We will be using four clock signals clk1, 
 clk2, clk3, clk4 to ensure smooth voting process. When all the clk signals are set 
 to 0 and display is set to zero, counters the votes for each candidates will be 
 zero. Now if the user enters the right password , then o is 1. Now the variables 
@@ -173,11 +174,8 @@ previous state. When clock signal for one candidate is set to 1, rest of the clo
 of the voting process, if the display is set 1, then the voting machine compares 
 the totals number of votes for each candiates and displays the results.
 
- 
 
-
-
-## Logisim Setup:
+### Logisim Setup:
 
 1. Open Logisim software.
 2. Load the project by opening the file "project.circ."
@@ -198,7 +196,7 @@ the totals number of votes for each candiates and displays the results.
 
 1. Once the entire voting process is completed, display the election results to the users.
 
-## Verilog Setup:
+### Verilog Setup:
 
 1. Set the reset signal to '1' to initialize all counters to zero.
 2. Initialize the clocks to '0,' and flip them every 10 seconds (0 -> 1 -> 0 -> 1 -> 0).
@@ -218,7 +216,7 @@ the totals number of votes for each candiates and displays the results.
 
 In summary, this system is designed to **authenticate** each voter, allow them to cast their votes, **prevent multiple voting**, and **display the election winners**. The combination of Logisim and Verilog provides a secure and efficient voting solution.
 
-> ## Functional Table
+> ### Functional Table
 
 |   A   |   B   |   O   | clk1 | clk2 | clk3 | clk4 | counter1 | counter2 | counter3 | counter4 |
 |:----:|:----:|:----:|:----:|:----:|:----:|:----:|:-------:|:-------:|:-------:|:-------:|
@@ -245,7 +243,7 @@ In summary, this system is designed to **authenticate** each voter, allow them t
 | 2987 | 3687 |  0  |  0  |  0  |  1  |  0  |    2    |    1    |    4    |    2    |
 | 1122 | 1122 |  1  |  0  |  1  |  0  |  0  |    2    |    2    |    4    |    2    |
 
-> ## Flowchart
+#### Flowchart
 
 ![Screenshot 2023-11-02 194630](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/71cfb501-acfa-41f8-a887-3854ac5cebb9)
 
@@ -260,12 +258,12 @@ In summary, this system is designed to **authenticate** each voter, allow them t
 
  >
 
- > Logisim Voting Module
+ > ### Logisim Voting Module
 
   ![Logisim_main](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/2c49a835-0d03-43c5-950d-c4e5e1d43188)
 
 
- > Logisim: 7 Segment Display
+ > ### Logisim: 7 Segment Display
 
  ![image](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/3b001233-c2f8-4a29-9eed-0a68551328fd)
  
