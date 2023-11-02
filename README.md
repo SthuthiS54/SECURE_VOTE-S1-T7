@@ -187,8 +187,12 @@ In summary, this system is designed to **authenticate** each voter, allow them t
 ## Verilog Code
 <details>
  <summary>Detail</summary>
-
-       module comparator(input [3:0]A,input [3:0]B,output e);
+ <details>
+ 
+  <summary>Verilog Main Code</summary>
+                
+                
+           module comparator(input [3:0]A,input [3:0]B,output e);
 
            wire [3:0]x;
 
@@ -433,11 +437,14 @@ In summary, this system is designed to **authenticate** each voter, allow them t
       end
 
       endmodule
+ </details>
+       
 
 
-> ## Testbench Code
-
-
+<details>
+ <summary>Testbench Code</summary>
+                
+ 
         module voting_machine_tb;
 
         reg clk1, clk2, clk3, clk4,display;
@@ -659,6 +666,7 @@ In summary, this system is designed to **authenticate** each voter, allow them t
 
     end
     endmodule
+</details>
 </details>
 
 
