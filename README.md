@@ -659,10 +659,6 @@ In summary, this system is designed to **authenticate** each voter, allow them t
 
     end
     endmodule
-
-
-
-  
 </details>
 
 
