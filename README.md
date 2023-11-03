@@ -257,7 +257,13 @@ In summary, this system is designed to **authenticate** each voter, allow them t
 
  #### Voting Machine Module
 
- 
+ ![Logisim_Voting_module](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/c6b6d249-4546-4577-b081-54ba0497dfdf)
+
+ #### 7-Segment Display
+
+ ![DISPLAY (2)](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/01280529-a826-4895-b760-4ad32e9267b6)
+
+
 
 
 </details>
