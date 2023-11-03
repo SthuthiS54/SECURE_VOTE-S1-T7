@@ -638,7 +638,7 @@ In summary, this system is designed to **authenticate** each voter, allow them t
 
     repeat (2) begin
 
-    $monitor("|  %d %d %d %d   |  %d %d %d %d   |       %b     |    %d     |      %d     |     %d    |     %d      |    %d     |     %d      |     %d    |     %d      |",A1,A2,A3,A4,B1,B2,B3,B4,o,                    clk1,counter1,clk2,counter2, clk3, counter3, clk4,counter4);
+    $monitor("|  %d %d %d %d   |  %d %d %d %d   |       %b     |    %d     |      %d     |     %d    |     %d      |    %d     |     %d      |     %d    |     %d      |",A1,A2,A3,A4,B1,B2,B3,B4, o, clk1,counter1,clk2,counter2, clk3, counter3, clk4,counter4);
 
         #10 A1=4'd2;A2=4'd9;A3=4'd8;A4=4'd7;B1=4'd2;B2=4'd9;B3=4'd8;B4=4'd7;clk1=1'b1; clk2=1'b0; clk3=1'b0; clk4=1'b0;
 
