@@ -261,7 +261,8 @@ In summary, this system is designed to **authenticate** each voter, allow them t
 
  #### 7-Segment Display
 
- ![DISPLAY (2)](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/01280529-a826-4895-b760-4ad32e9267b6)
+ ![image](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/aa5056d1-aa5a-4084-a546-03c51a93f352)
+
 
 
 
