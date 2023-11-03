@@ -277,6 +277,8 @@ In summary, this system is designed to **authenticate** each voter, allow them t
 
  
  <details>
+
+ >
  
    <summary>Verilog Main Code</summary>
                 
