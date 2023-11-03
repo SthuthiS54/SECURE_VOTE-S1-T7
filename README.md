@@ -1,4 +1,4 @@
-# SECURE_VOTE-S1-T7
+# SECURE VOTE: Digital Voting Machine
 
 ## Team Details
 <details>
