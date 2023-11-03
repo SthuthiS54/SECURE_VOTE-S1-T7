@@ -256,7 +256,12 @@ In summary, this system is designed to **authenticate** each voter, allow them t
  
  <summary>Detail</summary>
 
- ![Logisim_main](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/10c7f8de-c003-47c4-941f-b5879595888d)
+ VOTING MACHINE MODULE
+ 
+ ![MAIN](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/c0493155-ab53-4f35-8b5c-aa6c7a750853)
+
+
+
 
  
 
