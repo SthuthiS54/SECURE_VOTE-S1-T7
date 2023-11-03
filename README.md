@@ -253,27 +253,18 @@ In summary, this system is designed to **authenticate** each voter, allow them t
 
 ## Logisim Circuit Diagram:
 <details>
- 
- <summary>Detail</summary>
-
- VOTING MACHINE MODULE
- 
- ![MAIN](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/c0493155-ab53-4f35-8b5c-aa6c7a750853)
-
-
-
-
- 
-
-
+ <summary>Details</summary>
+ ![MAIN](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/08cf64ae-6c4c-48cc-b13d-60f819753bef)
 
 </details>
 
 ## Verilog Code
 <details>
  <summary>Detail</summary>
+
+
  
- >
+
  
  <details>
  
