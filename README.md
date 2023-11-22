@@ -1,4 +1,4 @@
-![logisim_picture](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/cbae61a6-8e5f-4c9b-a93a-77b1dc3b6852)# SECURE VOTE: Digital Voting Machine
+# SECURE VOTE: Digital Voting Machine
 
 ## Team Details
 <details>
