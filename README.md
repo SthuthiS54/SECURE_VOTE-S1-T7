@@ -245,7 +245,7 @@ In summary, this system is designed to **authenticate** each voter, allow them t
 
 #### Flowchart
 
-![Screenshot 2023-11-02 194630](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/71cfb501-acfa-41f8-a887-3854ac5cebb9)
+![image](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/3492e0ac-94ee-45f9-ba7a-5f0b6e2fd887)
 
  
 </details>
@@ -257,11 +257,11 @@ In summary, this system is designed to **authenticate** each voter, allow them t
 
  #### Voting Machine Module
 
- ![Logisim_Voting_module](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/c6b6d249-4546-4577-b081-54ba0497dfdf)
+![LOGISIM_WORKING](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/a2a71513-061d-44e3-9d8b-c7403d161ebc)
 
  #### 7-Segment Display
 
- ![image](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/aa5056d1-aa5a-4084-a546-03c51a93f352)
+![DISPLAY_7_SEGMENT](https://github.com/SthuthiS54/SECURE_VOTE-S1-T7/assets/127185339/52fc64d6-792c-4b0e-90c5-3703f27b810d)
 
 
 
